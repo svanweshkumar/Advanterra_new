@@ -13,6 +13,8 @@ function Card({ p }: { p: (typeof PROJECTS)[number] }) {
           src={p.image}
           alt={`${p.title} — ${p.type} project in ${p.location}`}
           loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="project-image block h-auto w-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-ink/0 transition-colors duration-700 group-hover:bg-ink/25" />

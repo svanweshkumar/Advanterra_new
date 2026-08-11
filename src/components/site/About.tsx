@@ -53,6 +53,8 @@ export function About() {
               width={1200}
               height={1504}
               loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               className="story-image absolute inset-0 size-full scale-[1.12] object-cover"
             />
             <div className="absolute inset-x-4 bottom-4 z-20 flex items-end justify-between border-t border-bone/30 pt-3 text-bone/75">

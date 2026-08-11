@@ -42,6 +42,8 @@ export function Founders() {
                   width={1000}
                   height={1250}
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                   className="founder-image object-cover object-top grayscale transition-all duration-[1200ms] ease-out hover:scale-[1.03] hover:grayscale-0"
                 />
               </div>
