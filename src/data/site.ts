@@ -20,7 +20,7 @@ export const PROJECTS = [
     title: "Hillside Retreat",
     type: "Residential",
     year: "2024",
-    location: "Bengaluru outskirts",
+    location: "Nandi Hills",
     image: id1,
   },
   {
@@ -28,29 +28,29 @@ export const PROJECTS = [
     title: "Lake House",
     type: "Residential",
     year: "2023",
-    location: "Bengaluru",
+    location: "Sakleshpur",
     image: id2,
   },
   {
     index: "03",
     title: "Forest Cabin",
-    type: "Interior",
+    type: "Hospitality",
     year: "2023",
-    location: "Hassan",
+    location: "Coorg",
     image: id3,
   },
   {
     index: "04",
     title: "Modern Essence",
     type: "Interior",
-    year: "2023",
-    location: "Hassan",
+    year: "2025",
+    location: "Bengaluru",
     image: id4,
   },
   {
     index: "05",
     title: "Courtyard House",
-    type: "Interior",
+    type: "Residential",
     year: "2025",
     location: "Bengaluru",
     image: id5,
@@ -67,8 +67,8 @@ export const PROJECTS = [
     index: "07",
     title: "H1 Residence",
     type: "Residential",
-    year: "2026",
-    location: "Shivamogga",
+    year: "2025",
+    location: "Bengaluru",
     image: h1,
   },
 ];
@@ -159,5 +159,5 @@ export const CONTACT = {
   address:
     "672A, Hosakerehalli Layout, Banashankari 3rd Stage, Bengaluru, Karnataka 560085",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Hosakerehalli+Layout+Banashankari+3rd+Stage+Bengaluru",
+    "https://www.google.com/maps/place/ADVANTERRA+CONSTRUCTION/@12.9339041,77.5404803,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3f004da9553d:0x5c9817286f2b6925!8m2!3d12.9339041!4d77.5404803!16s%2Fg%2F11xmrgsy8h?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D",
 };

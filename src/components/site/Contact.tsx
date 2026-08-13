@@ -6,11 +6,30 @@ const FIELD =
   "w-full border-b border-line bg-transparent py-4 text-[15px] text-bone placeholder:text-concrete/70 outline-none transition-colors duration-500 focus:border-bronze";
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    const form = e.currentTarget;
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/.netlify/functions/send-inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      e.currentTarget.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -108,16 +127,23 @@ export function Contact() {
 
           <button
             type="submit"
-            className="navlink group mt-12 inline-flex items-center gap-3 bg-bronze px-8 py-4 text-ink transition-all duration-500 hover:bg-bone hover:shadow-[0_0_32px_rgba(184,154,106,0.3)]"
+            disabled={status === "sending"}
+            className="navlink group mt-12 inline-flex items-center gap-3 bg-bronze px-8 py-4 text-ink transition-all duration-500 hover:bg-bone hover:shadow-[0_0_32px_rgba(184,154,106,0.3)] disabled:pointer-events-none disabled:opacity-60"
           >
-            {sent ? "Inquiry received" : "Send inquiry"}
+            {status === "sending" ? "Sending inquiry" : status === "sent" ? "Inquiry received" : "Send inquiry"}
             <ArrowUpRight
               className="size-4 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
               strokeWidth={1.25}
             />
           </button>
           <p aria-live="polite" className="eyebrow mt-6 h-4 text-bronze">
-            {sent ? "Thank you — we'll be in touch within one business day." : ""}
+            {status === "sent"
+              ? "Thank you — we'll be in touch within one business day."
+              : status === "error"
+                ? "We couldn't send your inquiry. Please try again."
+                : status === "sending"
+                  ? "Sending your inquiry..."
+                  : ""}
           </p>
         </form>
       </div>
