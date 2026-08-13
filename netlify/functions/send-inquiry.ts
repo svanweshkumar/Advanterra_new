@@ -99,7 +99,8 @@ export const handler = async (event: { httpMethod?: string; body?: string | null
   });
 
   if (!resendResponse.ok) {
-    console.error("Resend request failed", resendResponse.status);
+    const errorDetails = await resendResponse.text();
+    console.error("Resend request failed", resendResponse.status, errorDetails);
     return json(502, { error: "Unable to send your inquiry right now" });
   }
 
