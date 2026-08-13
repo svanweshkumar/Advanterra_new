@@ -28,7 +28,7 @@ export function Nav() {
     >
       <div className="shell flex h-20 items-center justify-between md:h-24">
         <a href="#home" className="relative z-10 flex items-center" aria-label="Advanterra home">
-          <img src={logo} alt="Advanterra Construction" className="h-10 w-auto md:h-11" />
+          <img src={logo} alt="Advanterra Construction" className="h-12 w-auto md:h-14" />
         </a>
 
         <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
