@@ -34,6 +34,7 @@ export const handler = async (event: { httpMethod?: string; body?: string | null
   const fromEmail = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
   if (!resendApiKey) {
+    console.error("Missing RESEND_API_KEY environment variable");
     return json(500, { error: "Email service is not configured" });
   }
 

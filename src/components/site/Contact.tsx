@@ -25,7 +25,7 @@ export function Contact() {
         return;
       }
 
-      e.currentTarget.reset();
+      form.reset();
       setStatus("sent");
     } catch {
       setStatus("error");
